@@ -1,0 +1,60 @@
+<p style="color: green"><%= notice %></p>
+<% content_for :title, "Tasks" %>
+<div class="container mx-auto">
+ <div class="flex flex-row">
+   <%= link_to  "<--back to all tasks", tasks_path, class:"focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900" %>
+  </div>
+
+<div id="tasks" class="relative overflow-x-auto shadow-md sm:rounded-lg">
+  <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <tr >
+        <th  scope="col" class="px-6 py-3">
+          Name
+        </th>
+        <th  scope="col" class="px-6 py-3">
+          Category
+        </th>
+         <th  scope="col" class="px-6 py-3">
+          Description
+        </th>
+         <th  scope="col" class="px-6 py-3">
+          status
+        </th>
+         <th  scope="col" class="px-6 py-3">
+          Action
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"> 
+         <td  class="px-6 py-4">
+                  <%= @task.name %>
+                </td>
+                <td  class="px-6 py-4">
+                  <%= @task.category.name %>
+                </td>
+                <td  class="px-6 py-4">
+                  <%= @task.description %>
+                </td>
+                <td  class="px-6 py-4">
+                    <%= @task.status.humanize %>
+                </td>
+ ​​​       ​​​​​​​​​​        
+
+ 
+                <td  class="px-6 py-4">
+                    <div class= " flex flex-row">
+                    <%= button_to "delete", @task, method: :delete , class:"focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" %>
+                    <%= link_to "edit", edit_task_path, class:"focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" %>
+                    </div>
+                </td>
+                
+      </tr>
+
+    </tbody>
+  </table>
+  </div>
+  </div>
+</div>
+

@@ -1,0 +1,17 @@
+<% content_for :title, "Editing task" %>
+
+<h1>Editing task</h1>
+
+<%= render "form", task: @task %>
+
+<br>
+
+<div>
+  <%= link_to "Show this task", @task %> |
+  <%= link_to "Back to tasks", tasks_path %>
+</div>
+<div>
+  <%= button_to @task.is_completed? ? 'Yes' : 'Not Yet', toggle_completion_task_path, method: :patch %>
+</div>
+<div>
+</div>
