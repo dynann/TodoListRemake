@@ -4,6 +4,11 @@ class TasksController < ApplicationController
   # GET /tasks or /tasks.json
   def index
     @tasks = Task.all
+    if params[:sort] == 'desc'
+      @tasks = Task.order(status: :desc)
+    else 
+      @tasks = Task.order(:status)
+    end
   end
 
   # GET /tasks/1 or /tasks/1.json

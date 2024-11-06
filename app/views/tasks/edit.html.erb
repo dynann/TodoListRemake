@@ -2,16 +2,19 @@
 
 <h1>Editing task</h1>
 
+
 <%= render "form", task: @task %>
+
+
 
 <br>
 
 <div>
-  <%= link_to "Show this task", @task %> |
-  <%= link_to "Back to tasks", tasks_path %>
+  <div class="flex flex-row">
+   <%= link_to "<--Back to tasks", tasks_path, class:"focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900" %>
+   <div class="flex flex-row">
+  <%= button_to @task.is_completed? ? 'Set To Finish' : 'Finish', toggle_completion_task_path, method: :patch, class:"focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900" %>
+  </div>
 </div>
-<div>
-  <%= button_to @task.is_completed? ? 'Yes' : 'Not Yet', toggle_completion_task_path, method: :patch %>
 </div>
-<div>
-</div>
+
